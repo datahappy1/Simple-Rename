@@ -114,4 +114,3 @@ def move_to_bottom():
     for file in selected_files:
         config.file_listbox.insert(tk.END, file)
         config.file_listbox.selection_set(tk.END)
-
