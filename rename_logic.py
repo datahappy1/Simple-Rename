@@ -23,7 +23,7 @@ def rename_files(part1, counter_type, file_list):
     if file_list:
         if counter_type == "Čísla":
             count = 1
-            file_count = len(file_list)  # Získá počet souborů v seznamu
+            file_count = len(file_list)  # Find the number of selected files
             zero_padding = len(str(file_count))  # Délka nejvyššího čísla určuje počet nul
             for file_path in file_list:
                 new_name: str = f"{part1}{count:0{zero_padding}d}"
