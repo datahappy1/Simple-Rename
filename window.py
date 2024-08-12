@@ -31,11 +31,11 @@ def create_main_window():
 
     # Creation of list box
     config.file_listbox = tk.Listbox(listbox_frame, selectmode=tk.MULTIPLE, yscrollcommand=lambda f, l: None)
-    config.file_listbox.place(x=0, y=0, width=480, height=350)  # Nastavení rozměrů a pozice Listboxu
+    config.file_listbox.place(x=0, y=0, width=480, height=350)  # Setting size and parameters of listbox
 
     # Creation of scroll barr
     scrollbar = tk.Scrollbar(listbox_frame, orient=tk.VERTICAL, command=config.file_listbox.yview)
-    scrollbar.place(x=480, y=0, height=350)  # Nastavení rozměrů a pozice Scrollbar
+    scrollbar.place(x=480, y=0, height=350)  # Setting of location and parameters of scroll bar
 
     # Creation of remove all selected files button
     remove_all_button = tk.Button(root, text="Odebrat všechny soubory", command=lambda: remove_all_files(part1_entry))
