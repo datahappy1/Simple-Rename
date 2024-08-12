@@ -7,7 +7,7 @@ This application is designed to facilitate the bulk renaming of files based on u
 - **Bulk File Renaming**: Rename multiple files at once according to specified rules.
 - **Basic Numbering**: Supports simple sequential numbering of files.
 - **Alphabetical Sequence Naming**: Automatically generates alphabetical file names (e.g., 'A', 'AA', 'AAA') based on the total number of files to be renamed, ensuring consistent and sequential naming similar to Excel column labeling.
-- 
+
 ## Why This Application?
 
 While searching for a simple and intuitive file renaming tool, I found existing solutions to be overly complex and not user-friendly. This application is designed to be straightforward and focused on functionality, making it easier to rename large sets of files, such as TV show episodes, without unnecessary complications.
