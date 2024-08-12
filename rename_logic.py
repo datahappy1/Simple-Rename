@@ -24,7 +24,7 @@ def rename_files(part1, counter_type, file_list):
         if counter_type == "Čísla":
             count = 1
             file_count = len(file_list)  # Find the number of selected files
-            zero_padding = len(str(file_count))  # Délka nejvyššího čísla určuje počet nul
+            zero_padding = len(str(file_count))  # Length of the biggest number set the default number of zeroes.
             for file_path in file_list:
                 new_name: str = f"{part1}{count:0{zero_padding}d}"
                 rename_file(file_path, new_name)
