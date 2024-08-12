@@ -1,3 +1,3 @@
 
-# Globální proměnná
+# Globál variable
 file_listbox = None
