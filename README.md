@@ -18,17 +18,17 @@ To install and run this application:
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/yourusername/your-repository.git
+    git clone https://github.com/Mitelin/Simple-Rename
     ```
 
 2. **Navigate to the Project Directory**:
     ```bash
-    cd your-repository
+    cd https://github.com/Mitelin/Simple-Rename
     ```
 
 3. **Install Dependencies** (if any):
     ```bash
-    pip install -r requirements.txt
+    pip install -r https://github.com/Mitelin/Simple-Rename/requirements.txt
     ```
 
 4. **Run the Application**:
