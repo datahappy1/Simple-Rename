@@ -2,13 +2,28 @@
 from tkinter import ttk
 import tkinter as tk
 import config
-from widget_logic import select_files, remove_all_files, remove_selected, move_up, move_down, move_to_top, move_to_bottom
+from widget_logic import select_files, remove_all_files, remove_selected, move_up, move_down, move_to_top, move_to_bottom, toggle_language
 from rename_logic import rename_files
 
 # # This is for app dev precision widget moving
 # def display_coordinates(event):
 #     x, y = event.x, event.y
 #     print(f"Clicked at coordinates: ({x}, {y})")
+
+
+def print_button_size(event):
+    # Zjistí aktuální velikost tlačítka v pixelech
+    widget = event.widget
+
+    # Získání velikosti tlačítka v pixelech
+    pixel_width = widget.winfo_width()
+    pixel_height = widget.winfo_height()
+
+    # Získání velikosti tlačítka v textových a řádkových jednotkách
+    char_width = pixel_width // widget.winfo_fpixels('1c')
+    row_height = pixel_height // widget.winfo_fpixels('1c')
+
+    print(f"Button clicked has size: {char_width} characters wide and {row_height} rows high")
 
 def create_main_window():
     # Main window creation
@@ -24,6 +39,7 @@ def create_main_window():
 
     # # This is for app dev precision widget moving
     # root.bind("<Button-1>", display_coordinates)
+    root.bind("<Button-1>", print_button_size)
 
     # Creation of box for listbox and scroll bar
     listbox_frame = ttk.Frame(root, width=500, height=350)
@@ -38,8 +54,8 @@ def create_main_window():
     scrollbar.place(x=480, y=0, height=350)  # Setting of location and parameters of scroll bar
 
     # Creation of remove all selected files button
-    remove_all_button = tk.Button(root, text="Odebrat všechny soubory", command=lambda: remove_all_files(part1_entry))
-    remove_all_button.place(x=428, y=420)
+    config.remove_all_button = tk.Button(root, text=config.texts[config.current_lang]["remove_all"], command=lambda: remove_all_files(part1_entry), width=19)
+    config.remove_all_button.place(x=428, y=420)
 
     # Creation of remove selected files button
     remove_button = tk.Button(root, text="Odebrat soubor", command=lambda: remove_selected(file_list, config.file_listbox, part1_entry))
@@ -90,9 +106,13 @@ def create_main_window():
     counter_menu['values'] = ("Čísla", "Písmena")
     counter_menu.place(x=300, y=29)
 
-    # Vytvoření tlačítka pro spuštění přejmenování
+    # Creation of button for file rename
     rename_button = tk.Button(root, text="Přejmenuj soubory", command=lambda: rename_files(part1_entry.get(), counter_type.get(), file_list))
     rename_button.place(x=115, y=420)
+
+    # Button for language toggle
+    config.toggle_button = tk.Button(root, text="EN", command=toggle_language)
+    config.toggle_button.place(x=550, y=1)
 
     # Start main application loop so window stay open
     root.mainloop()

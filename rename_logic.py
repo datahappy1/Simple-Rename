@@ -62,7 +62,7 @@ def base_alphabet(part1, file_list):
     file_list_update(file_list, new_file_list)
 
 
-# Generates a list of alphabetical strings, starting from 'A', 'AA', 'AAA', etc., based on the number of files..
+# Generates a list of alphabetical strings, starting from 'A', 'AA', 'AAA', etc., based on the number of files.
 def generate_string_chain(size):
     string_chain = []
     n = 1  # Number of strings in chain

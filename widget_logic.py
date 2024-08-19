@@ -4,6 +4,7 @@ import tkinter as tk
 import config
 
 
+
 # Function for selecting files and call for display them inside the filebox
 def select_files(file_list, part1_entry):
     files = filedialog.askopenfilenames()
@@ -114,3 +115,19 @@ def move_to_bottom():
     for file in selected_files:
         config.file_listbox.insert(tk.END, file)
         config.file_listbox.selection_set(tk.END)
+
+def toggle_language():
+    if config.toggle_button.config('text')[-1] == 'CZ':
+        config.toggle_button.config(text='EN')
+        config.current_lang = 'CZ'
+        print("Přepnuto na češtinu")
+    else:
+        config.toggle_button.config(text='CZ')
+        config.current_lang = 'EN'
+        print("Switched to English")
+    update_texts()
+
+
+def update_texts():
+    config.remove_all_button.config(text=config.texts[config.current_lang]["remove_all"])
+
