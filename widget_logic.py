@@ -130,4 +130,5 @@ def toggle_language():
 
 def update_texts():
     config.remove_all_button.config(text=config.texts[config.current_lang]["remove_all"])
-
+    config.remove_button.config(text=config.texts[config.current_lang]["remove_file"])
+    config.part1_label.config(text=config.texts[config.current_lang]["name_label"])
