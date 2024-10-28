@@ -1,3 +1,5 @@
+*One of my students app that I helped re-factor during the Design Patterns and good practices class.*
+
 # Simple mass rename (Alpha Version)
 
 This application is designed to facilitate the bulk renaming of files based on user-defined parameters. Currently in its alpha stage, the application is primarily focused on providing core functionality, with more advanced features planned for future releases.

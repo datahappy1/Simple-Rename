@@ -18,12 +18,12 @@ def rename_file(old_path, new_name):
 
 
 # Rename files method switch
-def rename_files(part1, counter_type, file_list, window_instance):
+def rename_files(part1, counter_type, file_list):
     if file_list:
         if counter_type == "Čísla":
-            base_numbering(part1, file_list, window_instance)
+            base_numbering(part1, file_list)
         elif counter_type == "Písmena":
-            base_alphabet(part1, file_list, window_instance)
+            base_alphabet(part1, file_list)
         else:
             print("Neplatný typ počítadla.")
     else:
@@ -31,22 +31,25 @@ def rename_files(part1, counter_type, file_list, window_instance):
 
 
 # Method for base numbering scheme while the size of numbering 0 , 00 , 000 is based on total file count
-def base_numbering(part1, file_list, window_instance):
+def base_numbering(part1, file_list):
     new_file_list = []
     count = 1
     file_count = len(file_list)  # Find the number of selected files
-    zero_padding = len(str(file_count))  # Length of the biggest number set the default number of zeroes.
+    zero_padding = len(
+        str(file_count)
+    )  # Length of the biggest number set the default number of zeroes.
     for file_path in file_list:
         new_name: str = f"{part1}{count:0{zero_padding}d}"
         rename_file(file_path, new_name)
         new_file_list.append(
-            path.join(path.dirname(file_path), new_name + path.splitext(file_path)[1]))
+            path.join(path.dirname(file_path), new_name + path.splitext(file_path)[1])
+        )
         count += 1
-    file_list_update(window_instance, file_list, new_file_list)
+    file_list_update(file_list, new_file_list)
 
 
 # Method for base alphabet acting like numbers (e.g., 'a' -> 'b', 'z' -> 'aa', 'az' -> 'ba', 'zz' -> 'aaa')
-def base_alphabet(part1, file_list, window_instance):
+def base_alphabet(part1, file_list):
     new_file_list = []
     total_files = len(file_list)
     string_chain = generate_string_chain(total_files)
@@ -55,9 +58,10 @@ def base_alphabet(part1, file_list, window_instance):
         new_name = f"{part1}{string_chain[i]}"
         rename_file(file_path, new_name)
         new_file_list.append(
-            path.join(path.dirname(file_path), new_name + path.splitext(file_path)[1]))
+            path.join(path.dirname(file_path), new_name + path.splitext(file_path)[1])
+        )
 
-    file_list_update(file_list, new_file_list, window_instance)
+    file_list_update(file_list, new_file_list)
 
 
 # Generates a list of alphabetical strings, starting from 'A', 'AA', 'AAA', etc., based on the number of files.
@@ -73,7 +77,7 @@ def generate_string_chain(size):
         chain = ""
         num = i
         for _ in range(n):
-            chain = chr(num % 26 + ord('A')) + chain
+            chain = chr(num % 26 + ord("A")) + chain
             num //= 26
         string_chain.append(chain)
 
@@ -81,7 +85,7 @@ def generate_string_chain(size):
 
 
 # calls for updating of file list box after renaming is done
-def file_list_update(window_instance, file_list, new_file_list):
+def file_list_update(file_list, new_file_list):
     file_list.clear()
     file_list.extend(new_file_list)
-    window_instance.update_file_listbox(file_list)  # Zavolání metody na instanci
+    # update_file_listbox(file_list)
